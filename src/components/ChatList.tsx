@@ -36,12 +36,32 @@ export const ChatList: React.FC<ChatListSearchProps> = ({
 
         return nameMatch && additionalFilterMatch;
       })
-      .sort((a, b) => new Date(b.lastMessageDate).getTime() - new Date(a.lastMessageDate).getTime());
+      .sort(
+        (a, b) =>
+          new Date(b.lastMessageDate).getTime() -
+          new Date(a.lastMessageDate).getTime()
+      );
   }, [data, searchTerm, filteredTerm]);
 
-  console.log({chats})
   if (loading) {
-    return <div>Loading</div>;
+    const skeletonsCount = Array.from(new Array(6));
+    return (
+      <>
+        {skeletonsCount.map(() => (
+          <div
+            role="status"
+            className="flex items-center p-4 border-b border-[#8696A026] bg-[#111A21] animate-pulse"
+          >
+            <div className="w-12 h-12 rounded-full bg-[#DCDCDC]"></div>
+            <div className="flex-grow ml-4 flex flex-col">
+              <div className="text-[#FFFFFF] font-bold max-w-[120px] h-4 bg-gray-200 rounded-full mb-2"></div>
+              <div className="h-2.5 bg-gray-200 rounded-full max-w-[210px]"></div>
+            </div>
+            <div className="h-4 bg-gray-200 rounded-full w-8"></div>
+          </div>
+        ))}
+      </>
+    );
   }
   if (error) {
     return <div>{error}</div>;
