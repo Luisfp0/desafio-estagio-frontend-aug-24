@@ -49,7 +49,7 @@ function App() {
             <Megaphone className="h-[25px] w-[25px]" />
           </div>
         </div>
-        <div className="flex flex-col h-[100px] p-[10px]">
+        <div className="flex flex-col h-[100px] p-[10px] w-full">
           <div className="flex h-[50%] w-full items-center justify-between mb-[20px]">
             <span className="text-[#E9EDEF] text-[18px] font-bold">Chats</span>
             <div className="flex gap-[20px] mr-[15px]">
