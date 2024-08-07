@@ -1,3 +1,4 @@
+import { formatWhatsAppDate } from "@/lib/utils";
 import { ChatItem } from "@/types";
 
 type ChatListItemProps = {
@@ -18,7 +19,7 @@ export const ChatListItem: React.FC<ChatListItemProps> = ({ chat }) => {
           {chat.lastMessage}
         </div>
       </div>
-      <div className="text-sm text-gray-500">{chat.lastMessageDate}</div>
+      <div className="text-sm text-gray-500">{formatWhatsAppDate(chat.lastMessageDate)}</div>
       {!chat.read && (
         <div className="ml-2 bg-blue-500 text-white rounded-full h-6 w-6 flex items-center justify-center">
           1
