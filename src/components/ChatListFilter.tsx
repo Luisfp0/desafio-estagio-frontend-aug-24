@@ -1,17 +1,20 @@
-import { ListFilter, MessageSquareDot, MessageSquareText, Users } from "lucide-react";
+import { useChatStore } from "@/hooks/useChatStore";
+import { FilterOptions } from "@/types";
+import {
+  ListFilter,
+  MessageSquareDot,
+  MessageSquareText,
+  Users,
+} from "lucide-react";
 import { useState } from "react";
 
-type ChatListFilterProps = {
-  onFilterChange: (term: string) => void;
-};
+export const ChatListFilter = () => {
+  const { setFilter } = useChatStore();
 
-export const ChatListFilter: React.FC<ChatListFilterProps> = ({
-  onFilterChange,
-}) => {
   const [openFilter, setOpenFilter] = useState(false);
 
-  const handleItemClick = (term: string) => {
-    onFilterChange(term);
+  const handleItemClick = (term: FilterOptions) => {
+    setFilter(term);
     setOpenFilter(false);
   };
 

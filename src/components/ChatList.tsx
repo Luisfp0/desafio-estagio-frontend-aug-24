@@ -1,17 +1,9 @@
+import { useChatStore } from "@/hooks/useChatStore";
 import { ChatListItem } from "./ChatListItem";
-import { useChats } from "@/hooks/useChats";
 import { useMemo } from "react";
 
-type ChatListSearchProps = {
-  searchTerm: string;
-  filteredTerm: string;
-};
-
-export const ChatList: React.FC<ChatListSearchProps> = ({
-  searchTerm,
-  filteredTerm,
-}) => {
-  const { data, error, loading } = useChats();
+export const ChatList = () => {
+  const { chats: data, loading, error, search, filter } = useChatStore();
 
   const chats = useMemo(() => {
     if (!data) {
@@ -21,14 +13,14 @@ export const ChatList: React.FC<ChatListSearchProps> = ({
       .filter((chat) => {
         const nameMatch = chat.name
           .toLowerCase()
-          .includes(searchTerm.toLowerCase());
+          .includes(search.toLowerCase());
 
         let additionalFilterMatch = false;
-        if (filteredTerm === "all") {
+        if (filter === "all") {
           additionalFilterMatch = true;
-        } else if (filteredTerm === "group") {
+        } else if (filter === "group") {
           additionalFilterMatch = chat.type === "GROUP";
-        } else if (filteredTerm === "unreads") {
+        } else if (filter === "unreads") {
           additionalFilterMatch = !chat.read;
         } else {
           additionalFilterMatch = true;
@@ -41,7 +33,7 @@ export const ChatList: React.FC<ChatListSearchProps> = ({
           new Date(b.lastMessageDate).getTime() -
           new Date(a.lastMessageDate).getTime()
       );
-  }, [data, searchTerm, filteredTerm]);
+  }, [data, search, filter]);
 
   if (loading) {
     const skeletonsCount = Array.from(new Array(6));
@@ -70,7 +62,11 @@ export const ChatList: React.FC<ChatListSearchProps> = ({
   return (
     <div className="flex flex-col overflow-y-scroll scrollbar scrollbar-thumb-[#374045] scrollbar-w-1">
       {chats.map((chat, index) => (
-        <ChatListItem key={index} {...chat} photo='https://placehold.co/48x48' />
+        <ChatListItem
+          key={index}
+          {...chat}
+          photo="https://placehold.co/48x48"
+        />
       ))}
     </div>
   );

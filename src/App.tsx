@@ -1,33 +1,16 @@
-import {
-  EllipsisVertical,
-  MessageSquareDiff,
-} from "lucide-react";
+import { EllipsisVertical, MessageSquareDiff } from "lucide-react";
 import { ChatList } from "./components/ChatList";
 import { ChatListSearch } from "./components/ChatListSearch";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ChatListFilter } from "./components/ChatListFilter";
-import { useSearchParams } from "react-router-dom";
+import { useChatStore } from "./hooks/useChatStore";
 
 function App() {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState(() => searchParams.get("search") || "");
-  const [filteredTerm, setFilteredTerm] = useState(() => searchParams.get("filter") || "all");
+  const { fetch } = useChatStore();
 
   useEffect(() => {
-    const params: { search?: string; filter?: string } = {};
-    if (searchTerm) params.search = searchTerm;
-    if (filteredTerm && filteredTerm !== "all") params.filter = filteredTerm;
-
-    setSearchParams(params);
-  }, [searchTerm, filteredTerm, setSearchParams]);
-
-  const handleSearchChange = (term: string) => {
-    setSearchTerm(term);
-  };
-
-  const handleFilteredTerm = (term: string) => {
-    setFilteredTerm(term);
-  };
+    fetch();
+  }, [fetch]);
 
   return (
     <div className="h-screen w-full flex items-center justify-center">
@@ -41,13 +24,10 @@ function App() {
             </div>
           </div>
           <div className="w-full flex items-center mb-2">
-            <ChatListSearch
-              onSearchChange={handleSearchChange}
-              filteredTerm={filteredTerm}
-            />
-            <ChatListFilter onFilterChange={handleFilteredTerm} />
+            <ChatListSearch />
+            <ChatListFilter />
           </div>
-          <ChatList searchTerm={searchTerm} filteredTerm={filteredTerm} />
+          <ChatList />
         </div>
       </div>
       <div
