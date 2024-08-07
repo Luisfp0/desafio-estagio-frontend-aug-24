@@ -36,7 +36,7 @@ export const ChatList = () => {
   }, [data, search, filter]);
 
   if (loading) {
-    const skeletonsCount = Array.from(new Array(10));
+    const skeletonsCount = Array.from(new Array(12));
     return (
       <>
         {skeletonsCount.map((_, index) => (
