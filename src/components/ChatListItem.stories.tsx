@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    photo: "https://placehold.co/48x48",
+    photo: "https://raw.githubusercontent.com/Luisfp0/desafio-estagio-frontend-aug-24/main/src/assets/hyerDev.png",
     name: "Hyerdev",
     lastMessage:
       "Olá! Seja bem-vindo(a) à Hyerdev.",
@@ -24,9 +24,9 @@ export const Default: Story = {
 export const WithoutPhoto: Story = {
   args: {
     photo: "",
-    name: "Luís Fernando",
+    name: "Hyerdev",
     lastMessage:
-      "Sed incidunt sequi veniam veritatis molestias ab minima non natus.",
+      "Olá! Seja bem-vindo(a) à Hyerdev.",
     read: true,
     lastMessageDate: "2024-08-07T14:41:13.197Z",
   },
@@ -34,10 +34,10 @@ export const WithoutPhoto: Story = {
 
 export const MessageUnread: Story = {
   args: {
-    photo: "https://placehold.co/48x48",
+    photo: "https://github.com/Luisfp0.png",
     name: "Luís Fernando",
     lastMessage:
-      "Sed incidunt sequi veniam veritatis molestias ab minima non natus.",
+      "Como podemos ajudar hoje?",
     read: false,
     lastMessageDate: "2024-08-07T14:41:13.197Z",
   },
