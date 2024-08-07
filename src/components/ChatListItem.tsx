@@ -15,7 +15,7 @@ export const ChatListItem: React.FC<ChatListItemProps> = ({
   photo,
 }) => {
   return (
-    <div className="gap-4 flex items-center p-4 border-b border-[#8696A026] bg-[#111A21]">
+    <div className="gap-4 flex items-center p-4 border-b border-[#8696A026] bg-[#111A21] hover:bg-[#2A3942] cursor-pointer">
       {photo ? (
         <img src={photo} alt={name} className="size-12 rounded-full" />
       ) : (

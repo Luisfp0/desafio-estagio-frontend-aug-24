@@ -39,8 +39,9 @@ export const ChatList = () => {
     const skeletonsCount = Array.from(new Array(6));
     return (
       <>
-        {skeletonsCount.map(() => (
+        {skeletonsCount.map((_,index) => (
           <div
+            key={index}
             role="status"
             className="flex items-center p-4 border-b border-[#8696A026] bg-[#111A21] animate-pulse"
           >
@@ -61,9 +62,9 @@ export const ChatList = () => {
 
   return (
     <div className="flex flex-col overflow-y-scroll scrollbar scrollbar-thumb-[#374045] scrollbar-w-1">
-      {chats.map((chat, index) => (
+      {chats.map((chat) => (
         <ChatListItem
-          key={index}
+          key={chat.id}
           {...chat}
           photo="https://placehold.co/48x48"
         />
