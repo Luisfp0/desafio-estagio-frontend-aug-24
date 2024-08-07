@@ -8,16 +8,16 @@ import {
   Store,
   Users,
 } from "lucide-react";
-import { ChatList } from "./compononents/ChatList";
-import { ChatListSearch } from "./compononents/ChatListSearch";
+import { ChatList } from "./components/ChatList";
+import { ChatListSearch } from "./components/ChatListSearch";
 import { useEffect, useState } from "react";
-import { ChatListFilter } from "./compononents/ChatListFilter";
+import { ChatListFilter } from "./components/ChatListFilter";
 import { useSearchParams } from "react-router-dom";
 
 function App() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filteredTerm, setFilteredTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState(() => searchParams.get("search") || "");
+  const [filteredTerm, setFilteredTerm] = useState(() => searchParams.get("filter") || "all");
 
   useEffect(() => {
     const params: { search?: string; filter?: string } = {};
