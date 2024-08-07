@@ -4,13 +4,29 @@ import { ChatListSearch } from "./components/ChatListSearch";
 import { useEffect } from "react";
 import { ChatListFilter } from "./components/ChatListFilter";
 import { useChatStore } from "./hooks/useChatStore";
+import { useSearchParams } from "react-router-dom";
+
+type QueryParams = { search?: string; filter?: string };
 
 function App() {
-  const { fetch } = useChatStore();
+  const { fetch, search, filter } = useChatStore();
+  const [, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     fetch();
   }, [fetch]);
+
+  useEffect(() => {
+    const params: QueryParams = {};
+    if (search) {
+      params.search = search;
+    }
+    if (filter && filter !== "all") {
+      params.filter = filter;
+    }
+
+    setSearchParams(params);
+  }, [search, filter, setSearchParams]);
 
   return (
     <div className="h-screen w-full flex items-center justify-center">

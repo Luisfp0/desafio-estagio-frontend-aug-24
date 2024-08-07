@@ -12,12 +12,23 @@ interface ChatState {
   setFilter: (newFilteredTerms: FilterOptions) => void;
 }
 
+const urlParams = new URLSearchParams(window.location.search);
+
+const getFilterFromUrl = () => {
+  const validFilters = ["all", "group", "unreads"];
+  const urlFilter = urlParams.get("filter") || "all";
+  if (validFilters.includes(urlFilter)) {
+    return urlFilter as FilterOptions;
+  }
+  return "all";
+};
+
 export const useChatStore = create<ChatState>((set) => ({
   chats: [],
   loading: false,
   error: null,
-  search: "",
-  filter: "all",
+  search: urlParams.get("search") || "",
+  filter: getFilterFromUrl(),
   setSearch: (newSearchTerm) =>
     set((state) => ({ ...state, search: newSearchTerm })),
 
