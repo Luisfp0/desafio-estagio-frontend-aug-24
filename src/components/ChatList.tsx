@@ -36,10 +36,10 @@ export const ChatList = () => {
   }, [data, search, filter]);
 
   if (loading) {
-    const skeletonsCount = Array.from(new Array(6));
+    const skeletonsCount = Array.from(new Array(10));
     return (
       <>
-        {skeletonsCount.map((_,index) => (
+        {skeletonsCount.map((_, index) => (
           <div
             key={index}
             role="status"
@@ -65,8 +65,11 @@ export const ChatList = () => {
       {chats.map((chat) => (
         <ChatListItem
           key={chat.id}
-          {...chat}
-          photo="https://placehold.co/48x48"
+          name={chat.name}
+          photo={chat.photo}
+          lastMessage={chat.lastMessage}
+          lastMessageDate={chat.lastMessageDate}
+          read={chat.read}
         />
       ))}
     </div>

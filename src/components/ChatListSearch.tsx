@@ -1,5 +1,6 @@
 import { useChatStore } from "@/hooks/useChatStore";
 import { Search } from "lucide-react";
+import { Input } from "./ui/input";
 
 const placeholderTexts: Record<string, string> = {
   all: "Pesquisar",
@@ -15,12 +16,12 @@ export const ChatListSearch = () => {
 
   return (
     <div className="relative flex overflow-hidden items-center justify-center w-full">
-      <Search className="absolute top-[10px] left-[12px] w-[20px] h-[20px] text-white" />
-      <input
+      <Search className="absolute top-[10px] left-[12px] size-5 text-white" />
+      <Input
         placeholder={placeholderTexts[filter] || ""}
         value={search}
         onChange={handleChange}
-        className=" text-white w-full flex items-center pr-[32px] pl-[65px] bg-[#202c33] rounded-[8px] h-[40px]"
+        className="border-0 text-white w-full flex items-center pl-[55px] bg-[#202c33] rounded-[8px] h-[40px]"
       />
     </div>
   );
