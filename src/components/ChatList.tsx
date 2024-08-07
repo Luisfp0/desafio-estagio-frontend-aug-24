@@ -48,7 +48,7 @@ export const ChatList: React.FC<ChatListSearchProps> = ({
   }
 
   return (
-    <div>
+    <div className="flex flex-col overflow-y-scroll scrollbar scrollbar-thumb-[#374045] scrollbar-w-1">
       {chats.map((chat, index) => (
         <ChatListItem key={index} chat={chat} />
       ))}

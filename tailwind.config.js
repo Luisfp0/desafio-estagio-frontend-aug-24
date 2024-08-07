@@ -20,7 +20,7 @@ export default {
     extend: {
       colors: {
         border: "hsl(var(--border))",
-        'hd-border': 'var(--hd-border)', 
+        "hd-border": "var(--hd-border)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -75,5 +75,8 @@ export default {
       },
     },
   },
-  plugins: [tailwindcssAnimate],
+  plugins: [
+    tailwindcssAnimate,
+    require("tailwind-scrollbar")({ nocompatible: true }),
+  ],
 };

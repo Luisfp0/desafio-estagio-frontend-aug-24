@@ -40,7 +40,7 @@ function App() {
               <EllipsisVertical className="text-[#E9EDEF]" />
             </div>
           </div>
-          <div className="w-full flex items-center">
+          <div className="w-full flex items-center mb-2">
             <ChatListSearch
               onSearchChange={handleSearchChange}
               filteredTerm={filteredTerm}
