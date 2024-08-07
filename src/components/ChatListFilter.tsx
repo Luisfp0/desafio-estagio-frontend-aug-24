@@ -16,7 +16,7 @@ export const ChatListFilter: React.FC<ChatListFilterProps> = ({
   };
 
   return (
-    <div className="relative w-[50px] flex justify-center text-white">
+    <div className="relative w-[50px] flex justify-center text-white z-10">
       <ListFilter
         onClick={() => setOpenFilter(true)}
         className="text-[#E9EDEF] cursor-pointer"
