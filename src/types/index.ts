@@ -1,9 +1,8 @@
 export type ChatItem = {
-  contact: {
-    photo: string;
-    name: string;
-  };
+  id: string;
   lastMessage: string;
+  photo: string;
+  name: string;
   lastMessageDate: string;
   read: boolean;
   type: "GROUP" | "DM";
