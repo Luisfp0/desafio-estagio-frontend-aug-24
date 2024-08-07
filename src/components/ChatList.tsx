@@ -17,25 +17,29 @@ export const ChatList: React.FC<ChatListSearchProps> = ({
     if (!data) {
       return [];
     }
-    return data.filter((chat) => {
-      const nameMatch = chat.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+    return data
+      .filter((chat) => {
+        const nameMatch = chat.name
+          .toLowerCase()
+          .includes(searchTerm.toLowerCase());
 
-      let additionalFilterMatch = false;
-      if (filteredTerm === "all") {
-        additionalFilterMatch = true;
-      } else if (filteredTerm === "group") {
-        additionalFilterMatch = chat.type === "GROUP";
-      } else if (filteredTerm === "unreads") {
-        additionalFilterMatch = !chat.read;
-      } else {
-        additionalFilterMatch = true;
-      }
+        let additionalFilterMatch = false;
+        if (filteredTerm === "all") {
+          additionalFilterMatch = true;
+        } else if (filteredTerm === "group") {
+          additionalFilterMatch = chat.type === "GROUP";
+        } else if (filteredTerm === "unreads") {
+          additionalFilterMatch = !chat.read;
+        } else {
+          additionalFilterMatch = true;
+        }
 
-      return nameMatch && additionalFilterMatch;
-    });
-  }, [data, filteredTerm]);
+        return nameMatch && additionalFilterMatch;
+      })
+      .sort((a, b) => new Date(b.lastMessageDate).getTime() - new Date(a.lastMessageDate).getTime());
+  }, [data, searchTerm, filteredTerm]);
+
+  console.log({chats})
   if (loading) {
     return <div>Loading</div>;
   }
