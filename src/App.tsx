@@ -10,12 +10,22 @@ import {
 } from "lucide-react";
 import { ChatList } from "./compononents/ChatList";
 import { ChatListSearch } from "./compononents/ChatListSearch";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChatListFilter } from "./compononents/ChatListFilter";
+import { useSearchParams } from "react-router-dom";
 
 function App() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredTerm, setFilteredTerm] = useState("");
+
+  useEffect(() => {
+    const params: { search?: string; filter?: string } = {};
+    if (searchTerm) params.search = searchTerm;
+    if (filteredTerm && filteredTerm !== "all") params.filter = filteredTerm;
+
+    setSearchParams(params);
+  }, [searchTerm, filteredTerm, setSearchParams]);
 
   const handleSearchChange = (term: string) => {
     setSearchTerm(term);
@@ -48,7 +58,10 @@ function App() {
             </div>
           </div>
           <div className="h-[50%] w-full flex items-center">
-            <ChatListSearch onSearchChange={handleSearchChange} filteredTerm={filteredTerm} />
+            <ChatListSearch
+              onSearchChange={handleSearchChange}
+              filteredTerm={filteredTerm}
+            />
             <ChatListFilter onFilterChange={handleFilteredTerm} />
           </div>
           <ChatList searchTerm={searchTerm} filteredTerm={filteredTerm} />
