@@ -42,13 +42,15 @@ export const ChatListItem: React.FC<ChatListItemProps> = memo(
                 <CheckCheck />
               </div>
             )}
-            <div className="text-gray-500 truncate flex">
-              {message.typeOfMessage === "audio" && (
-                <div className="pr-1 text-green-500">
-                  <StatusPttIcon />
-                </div>
-              )}
-              <span>{message.lastMessage}</span>
+            <div className="text-gray-500 truncate">
+              <span>
+                {message.typeOfMessage === "audio" && (
+                  <div className="pr-1 text-green-500 inline-flex align-top">
+                    <StatusPttIcon />
+                  </div>
+                )}
+                {message.lastMessage}
+              </span>
             </div>
           </div>
         </div>
