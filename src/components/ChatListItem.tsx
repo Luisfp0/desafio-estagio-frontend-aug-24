@@ -2,7 +2,7 @@ import { formatWhatsAppDate } from "@/lib/utils";
 import { ChatItem } from "@/types";
 import { CheckCheck, User } from "lucide-react";
 import { memo } from "react";
-import StatusPttIcon from "./ui/statusPttIcon";
+import StatusPttIcon from "./statusPttIcon";
 
 type ChatListItemProps = Pick<
   ChatItem,
