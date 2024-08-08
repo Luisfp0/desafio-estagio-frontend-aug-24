@@ -2,7 +2,10 @@ export type FilterOptions = "all" | "group" | "unreads";
 
 export type ChatItem = {
   id: string;
-  lastMessage: string;
+  message: {
+    typeOfMessage: "audio" | "message";
+    lastMessage: string;
+  };
   photo: string;
   name: string;
   lastMessageDate: string;

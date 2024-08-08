@@ -67,9 +67,10 @@ export const ChatList = () => {
           key={chat.id}
           name={chat.name}
           photo={chat.photo}
-          lastMessage={chat.lastMessage}
+          message={chat.message}
           lastMessageDate={chat.lastMessageDate}
           read={chat.read}
+          type={chat.type}
         />
       ))}
     </div>
