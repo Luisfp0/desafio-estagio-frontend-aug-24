@@ -21,6 +21,9 @@ export default {
       colors: {
         border: "hsl(var(--border))",
         "hd-border": "var(--hd-border)",
+        "hd-icon-light": "var(--hd-icon-light)",
+        "hd-background-wpp": "var(--hd-background-wpp)",
+        "hd-green-wpp": "var(--hd-green-wpp)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",

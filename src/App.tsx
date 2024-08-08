@@ -30,13 +30,13 @@ function App() {
 
   return (
     <div className="h-screen w-full flex items-center justify-center">
-      <div className="flex border-r border-hd-border h-full w-2/5 bg-[#111A21]">
+      <div className="flex border-r border-hd-border h-full w-2/5 bg-[#111A21] hd-background-wpp">
         <div className="flex flex-col w-full">
           <div className="flex w-full items-center justify-between mb-5 pt-3.5 pl-3.5 pr-2">
-            <span className="text-[#E9EDEF] text-[18px] font-bold">Chats</span>
+            <span className="text-hd-icon-light text-[18px] font-bold">Chats</span>
             <div className="flex gap-5 mr-1">
-              <MessageSquareDiff className="text-[#E9EDEF]" />
-              <EllipsisVertical className="text-[#E9EDEF]" />
+              <MessageSquareDiff className="text-hd-icon-light" />
+              <EllipsisVertical className="text-hd-icon-light" />
             </div>
           </div>
           <div className="w-full flex items-center pb-3 pt-3.5 pl-3.5 pr-1">
@@ -46,7 +46,7 @@ function App() {
           <ChatList />
         </div>
       </div>
-      <div className="brightness-50 h-full bg-[#0C141A] flex-1 bg-[url('./assets/bgWpp.png')]"></div>
+      <div className="brightness-50 h-full bg-black flex-1 bg-[url('./assets/bgWpp.png')]"></div>
     </div>
   );
 }

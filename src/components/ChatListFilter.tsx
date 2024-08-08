@@ -51,7 +51,7 @@ export const ChatListFilter = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="">
-            <ListFilter className="text-[#E9EDEF] cursor-pointer" />
+            <ListFilter className="text-hd-icon-light cursor-pointer" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent

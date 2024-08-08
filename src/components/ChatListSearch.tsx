@@ -29,7 +29,7 @@ export const ChatListSearch = () => {
             transition={{ duration: 0.3 }}
             className="absolute top-[10px] left-[12px]"
           >
-            <ArrowLeft className="text-[#00a884] size-5 cursor-pointer" />
+            <ArrowLeft className="text-hd-green-wpp size-5 cursor-pointer" />
           </motion.div>
         ) : (
           <motion.div

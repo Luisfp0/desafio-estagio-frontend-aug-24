@@ -12,7 +12,7 @@ type ChatListItemProps = Pick<
 export const ChatListItem: React.FC<ChatListItemProps> = memo(
   ({ name, message, lastMessageDate, read, photo, type }) => {
     return (
-      <div className="gap-4 flex items-center p-4 border-b border-[#8696A026] bg-[#111A21] hover:bg-[#2A3942] cursor-pointer">
+      <div className="gap-4 flex items-center p-4 border-b border-hd-border hover:bg-[#2A3942] cursor-pointer">
         {photo ? (
           <div className="relative">
             <div className="flex items-center justify-center size-12 rounded-full bg-slate-300 absolute z-0 top-0 left-0">
@@ -31,7 +31,7 @@ export const ChatListItem: React.FC<ChatListItemProps> = memo(
           </div>
         )}
         <div className="flex-1 flex flex-col overflow-hidden">
-          <div className="text-[#FFFFFF] font-bold">
+          <div className="text-white font-bold">
             <span>{name}</span>
           </div>
           <div className="flex items-center gap-2">
@@ -45,7 +45,7 @@ export const ChatListItem: React.FC<ChatListItemProps> = memo(
             <div className="text-gray-500 truncate">
               <span>
                 {message.typeOfMessage === "audio" && (
-                  <div className="pr-1 text-green-500 inline-flex align-top">
+                  <div className="pr-1 text-green-500 inline-flex align-baseline">
                     <StatusPttIcon />
                   </div>
                 )}
@@ -59,7 +59,7 @@ export const ChatListItem: React.FC<ChatListItemProps> = memo(
             <span>{formatWhatsAppDate(lastMessageDate)}</span>
           </div>
           {!read && (
-            <div className="bg-[#00A884] rounded-full size-6 flex items-center justify-center">
+            <div className="bg-hd-green-wpp rounded-full size-6 flex items-center justify-center">
               <span>2</span>
             </div>
           )}
