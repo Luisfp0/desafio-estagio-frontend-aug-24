@@ -46,9 +46,7 @@ function App() {
           <ChatList />
         </div>
       </div>
-      <div
-        className={`brightness-50 h-full bg-[#0C141A] flex-1 bg-[url('./assets/bgWpp.png')]`}
-      >
+      <div className="brightness-50 h-full bg-[#0C141A] flex-1 bg-[url('./assets/bgWpp.png')]">
         right
       </div>
     </div>
